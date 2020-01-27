@@ -1,9 +1,5 @@
 // Do I have to import something here first?
 
-var player1ID, player2ID;
-var is_player1_set = false;
-var is_player2_set = false;
-
 web3Provider = null;
 contracts = {};
 
@@ -23,8 +19,9 @@ async function initWeb3() {
         window.alert("Please install metamask and try again.");
     }
 
+    web3 = new Web3(web3Provider);
     return initContract();
-    //return getPlayerIDs();
+
   }
 
 initWeb3();
@@ -48,29 +45,33 @@ function getPlayerIDs() {
     document.querySelector('.player-id').addEventListener('keypress', function (e) {
     
       if (e.key === 'Enter') {
-
-        if (is_player1_set && is_player2_set) {
+        var id = parseInt(document.getElementById("userInput").value);
+        if (isNaN(id)){
+          alert("It's a NaN. Please input a number.");
           return;
         }
-          if (is_player1_set) {
-            player2ID = document.getElementById("userInput"); //log the ID that was input as player 2
-              player2_set = true;
-        }   else if (!is_player1_set) {
-            player1ID = document.getElementById("userInput"); //log the ID that was input as player 1
-              is_player1_set = true;
-        }
+        //call the contract deposit function
+        var FPLinstance;
+        web3.eth.getAccounts(function(error, accounts) {
+          if (error) {
+            console.log(error);
+          }
 
-        
-      // Prompt user to sign transaction (enter the game) with metamask
+          var account = accounts[0];
 
-      console.log(is_player1_set, is_player2_set);
-      console.log(player1ID, player2ID);
+          contracts.FPLEscrow.deployed().then(function(instance) {
+            FPLinstance = instance;
 
+            return FPLinstance.deposit(id, {from: account, value: 10000000000000000}); //0.01 eth transaction per player
+          })
+        });
       }
 
   });
 
-  // Send Player IDs to smart contract
+  // I need to connect smart contract functions to frontend properly. playerID is sent but for some reason logic doesn't seem to work.
+  
+  // I need to be able to read playerIDs from smart contract as an arbiter.
 
 }
 

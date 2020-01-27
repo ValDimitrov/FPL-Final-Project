@@ -3,12 +3,12 @@ pragma solidity ^0.5.0;
 contract FPLEscrow {
 
     address arbiter;
-    int256 playerOneScore;
-    int256 playerTwoScore;
+    int256 public playerOneScore;
+    int256 public playerTwoScore;
     PlayerInfo player1;
     PlayerInfo player2;
-    bool player1_set = false;
-    bool player2_set = false;
+    bool public player1_set;
+    bool public player2_set;
     uint256 playerID1; // ID of the player on the fantasy football site
     uint256 playerID2;
     bool private stopped = false; //Bool for emergency switch
@@ -16,7 +16,6 @@ contract FPLEscrow {
     struct PlayerInfo {
         address payable playerAddress;
         uint256 playerID;
-
     }
 
     mapping(address => PlayerInfo) public Players;
@@ -31,20 +30,21 @@ contract FPLEscrow {
     }
 
     modifier stopInEmergency {
-        if (!stopped)
+        //if (!stopped)
+        require(!stopped);
         _;
     }
 
     constructor() public {
         arbiter = msg.sender;
+        player1_set = false;
+        player2_set = false;
     }
 
     function deposit(uint256 _playerID) public payable stopInEmergency {
-        //TODO - ask mentor what happens if a third player deposits money and we do nothing with it - should just be sent along with the rest to the winner? No.
 
-        // prevent further deposits after the second player
-        if (player1_set && player2_set) {   // require(msg.value % 2 == 0, "Even value required.");
-            return;
+        if (player1_set && player2_set) {   // prevent further deposits after the second player
+            revert();
         }
         if (player1_set) {
             player2 = PlayerInfo(msg.sender, _playerID);
@@ -66,19 +66,17 @@ contract FPLEscrow {
     }
 
     function setResults(int256 score_1, int256 score_2) public onlyArbiter {
-        playerOneScore = score_1; //Here these scores will be checked by the arbiter on the official FPL site and input into the smart contract. An additional 1 point will be awarded if there is a draw to the player with a better tiebreak record (Fantasy PL rules apply)
+        playerOneScore = score_1; //Scores will be checked by the arbiter on the official FPL site and input into the smart contract. An additional 1 point will be awarded if there is a draw (Fantasy PL tiebreak rules apply)
         playerTwoScore = score_2;
         payout();
     }
 
 
 
-    function() external { //fallback function - stops random ether from being sent by to not having "payable" modifier
-        v = 5;
+    function() external { //fallback function - stops random ether from being sent by not having "payable" modifier
+        v = 5; // Just something random
     }
 
     uint v;
-
-    //Tests - see notes
 
 }
