@@ -69,9 +69,10 @@ function getPlayerIDs() {
 
   });
 
-  // I need to connect smart contract functions to frontend properly. playerID is sent but for some reason logic doesn't seem to work.
   
-  // I need to be able to read playerIDs from smart contract as an arbiter.
+  // How do I read playerIDs from smart contract as the arbiter.
+
+  //How do I input the results as the arbiter?
 
 }
 
