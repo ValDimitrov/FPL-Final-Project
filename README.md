@@ -22,8 +22,7 @@ How to Use:
 - 	From metamask, choose an account for Player 2. Then type player 2's playerID (just use 2) and click enter. Then accept the transaction for 0.01 eth. Player two is now also entered into the game.
 - 	It is now up to the arbiter (me) to read the two playerIDs, check the results when the gameweek is over and call the setResults function with the player scores. 
 -	The contract then pays out the ether to the winner and the game is over.
-
- 
+---
 - 	At this stage there is no custom UI available for the arbiter (Again, decided so as not to overcomplicate the project). If you wish to test the arbiter part as well, then:
 - 	Go to remix.ethereum.org. There, at the "Deploy and run transactions" tab, choose "Web3 provider" as environment, and "http://localhost:8545" as endpoint.
 -	After that, input the address of the FPLEscrow contract next to the blue "At Address" button. You can find this address by clicking on "Contracts" in ganache-gui.
