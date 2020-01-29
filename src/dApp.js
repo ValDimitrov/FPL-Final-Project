@@ -62,23 +62,36 @@ function getPlayerIDs() {
           contracts.FPLEscrow.deployed().then(function(instance) {
             FPLinstance = instance;
 
-            return FPLinstance.deposit(id, {from: account, value: 10000000000000000}); //0.01 eth transaction per player
+            return FPLinstance.deposit(id, {from: account, value: 10000000000000000}) //0.01 eth transaction per player
           })
+          
         });
+
       }
 
   });
 
-  
-  // How do I read playerIDs from smart contract as the arbiter.
+  // async function alertUser() {
+  //   await alert("You have been entered into the game.");
+  // }
 
-  //How do I input the results as the arbiter?
 
 }
 
+var account = web3.eth.accounts[0];
 
+var accountInterval = setInterval(function() {
+  if (web3.eth.accounts[0] !== account) {
+    account = web3.eth.accounts[0];
+    updateInterface();
+  }
+  }, 100);
 
+  function updateInterface() {
+    accountInterval;
+  }
 
+document.getElementById("address").textContent = "Current account: " + account;
 
 
 

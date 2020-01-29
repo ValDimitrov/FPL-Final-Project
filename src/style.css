@@ -3,7 +3,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 61%;
+    top: 68%;
     color: #555;
     font-size: 18px;
     font-family: 'Lato';
@@ -61,4 +61,15 @@ body {
     font-weight: 300;
     color: #EB4D4D;
     margin-bottom: 130px;
+}
+
+.metamask-address {
+    font-size: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
 }
