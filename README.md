@@ -1,7 +1,7 @@
 Fantasy Football Head to Head Cryptocurrency Game
 
 Project Summary: 
--	2 players want to play fantasy football head to head (one vs one) using cryptocurrency (ether). 
+-	2 players want to play Fantasy Premier League (FPL) head to head (one vs one) using cryptocurrency (ether). 
 -	They both come to a simple website, where they place their bet (0.01 eth), and they enter into the h2h game by sending their eth to the smart contract. 
 -	When the player enters the game, their ether is deposited into the smart contract. This smart contract acts as an escrow. 
 -	The smart contract has several functions, including a deposit, payout, and a setResults function, which will include the final scores of each player for the given weekend (this will be a weekend game).
