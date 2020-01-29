@@ -1,6 +1,6 @@
 Design Decisions
-This file contains a quick overview of the design patterns used and decisions that I've made during the development of this project.
 ---
+This file contains a quick overview of the design patterns used and decisions that I've made during the development of this project.
 
 I have to mention again that this first version of the game is very simple, therefore it's fairly straightforward. Still, it made sense to design certain parts in a specific way.
 
