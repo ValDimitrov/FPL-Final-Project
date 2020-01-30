@@ -26,5 +26,5 @@ How to Use:
 - 	At this stage there is no custom UI available for the arbiter (Again, decided so as not to overcomplicate the project). If you wish to test the arbiter part as well, then:
 - 	Go to remix.ethereum.org. There, at the "Deploy and run transactions" tab, choose "Web3 provider" as environment, and "http://localhost:8545" as endpoint.
 -	After that, input the address of the FPLEscrow contract next to the blue "At Address" button. You can find this address by clicking on "Contracts" in ganache-gui. If necessary, import the smart contracts to remix by going to the file explorers tab and clicking on "Create new file".
--	Call the setResults function with the correct scores (just type "30, 25" as an example). The payout function is then called and the winning player receives the ether stored. The game is over.
+-	Check the two playerIDs by calling the getter functions. Then, call the setResults function with the correct scores (just type "30, 25" as an example). The payout function is then called and the winning player receives the ether stored. The game is over.
 
