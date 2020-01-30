@@ -8,7 +8,7 @@ Project Summary:
 -   There is also a toggleContractActive function which is an emergency switch, as well as a fallback function.
 -	There is an arbiter (me), and only the arbiter inputs the correct results. This was decided after talks with Josh and Coogan so as not to overcomplicate the project by attempting to connect to the FPL API which is not trivial.
 -	When the smart contract receives the final scores, it checks who has the higher score and sends the deposited ether (0.02 eth) to the winning player’s address.
-
+---
 How to Use:
 -	Clone this github repo on your pc: https://github.com/ValDimitrov/FPL-Final-Project
 -	Run a private blockchain with ganachi-gui or ganache-cli at port 8545
@@ -25,6 +25,6 @@ How to Use:
 ---
 - 	At this stage there is no custom UI available for the arbiter (Again, decided so as not to overcomplicate the project). If you wish to test the arbiter part as well, then:
 - 	Go to remix.ethereum.org. There, at the "Deploy and run transactions" tab, choose "Web3 provider" as environment, and "http://localhost:8545" as endpoint.
--	After that, input the address of the FPLEscrow contract next to the blue "At Address" button. You can find this address by clicking on "Contracts" in ganache-gui.
+-	After that, input the address of the FPLEscrow contract next to the blue "At Address" button. You can find this address by clicking on "Contracts" in ganache-gui. If necessary, import the smart contracts to remix by going to the file explorers tab and clicking on "Create new file".
 -	Call the setResults function with the correct scores (just type "30, 25" as an example). The payout function is then called and the winning player receives the ether stored. The game is over.
 
