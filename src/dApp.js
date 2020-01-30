@@ -1,18 +1,18 @@
-// Do I have to import something here first?
-
 web3Provider = null;
 contracts = {};
 
+var game_in_progress = true;
+var initial = true;
 
 async function initWeb3() {
-    // Modern dapp browsers..
+    // Metamask
     if (window.ethereum) {
       web3Provider = window.ethereum;
       try {
         // Request account access
         await window.ethereum.enable();
       } catch (error) {
-        // User denied account access..
+        // Catch if the user denied account access.
         console.error("User denied account access");
       }
     } else {
@@ -36,10 +36,16 @@ function initContract() {
     // Set the provider for our contract
     contracts.FPLEscrow.setProvider(web3Provider);
     
+    testStatus();
+    if (game_in_progress) {
+      setInterval(testStatus, 1000);
+    }
+
     return getPlayerIDs();
   });
 }
 
+// Initiate the transaction and get the player IDs
 function getPlayerIDs() {
 
     document.querySelector('.player-id').addEventListener('keypress', function (e) {
@@ -62,22 +68,16 @@ function getPlayerIDs() {
           contracts.FPLEscrow.deployed().then(function(instance) {
             FPLinstance = instance;
 
-            return FPLinstance.deposit(id, {from: account, value: 10000000000000000}) //0.01 eth transaction per player
+            return FPLinstance.deposit(id, {from: account, value: 10000000000000000}); //0.01 eth transaction per player
           })
           
         });
 
       }
-
   });
-
-  // async function alertUser() {
-  //   await alert("You have been entered into the game.");
-  // }
-
-
 }
 
+// Show current ethereum account in UI.
 var account = web3.eth.accounts[0];
 
 var accountInterval = setInterval(function() {
@@ -85,14 +85,38 @@ var accountInterval = setInterval(function() {
     account = web3.eth.accounts[0];
     updateInterface();
   }
-  }, 100);
+}, 100);
 
-  function updateInterface() {
-    accountInterval;
+async function checkPlayerStatuses(instance) {
+  var player1set = await instance.getPlayer1Status();
+  var player2set = await instance.getPlayer2Status();
+
+  if (player1set && player2set) {
+    alert("The game is now full. Please wait until it's over to sign up again.");
+    game_in_progress = false;
+  } else if(initial) {
+    alert("The game is now open. You can enter.");
   }
+  initial = false;
+}
 
-document.getElementById("address").textContent = "Current account: " + account;
+function testStatus(){
+  if (game_in_progress) {
+    contracts.FPLEscrow.deployed().then(function(instance) {
+      checkPlayerStatuses(instance);
+    });
+  }
+}
 
+function updateInterface() {
+  updateDisplayedAccountAddress(account);
+}
+
+function updateDisplayedAccountAddress(address) {
+  document.getElementById("address").textContent = "Current account: " + address;
+}
+
+updateDisplayedAccountAddress(account);
 
 
 
