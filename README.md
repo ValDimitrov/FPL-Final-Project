@@ -1,4 +1,5 @@
-Fantasy Football Head to Head Cryptocurrency Game
+Fantasy Football Head to Head Cryptocurrency Game 
+
 Author: Valentin Dimitrov
 
 Project Summary: 
