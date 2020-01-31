@@ -4,6 +4,7 @@ contracts = {};
 var game_in_progress = true;
 var initial = true;
 
+/// Instantiate web3 object
 async function initWeb3() {
     // Metamask
     if (window.ethereum) {
@@ -26,6 +27,7 @@ async function initWeb3() {
 
 initWeb3();
 
+//Initiate smart contract
 function initContract() {
     
   $.getJSON('FPLEscrow.json', function(data) {
@@ -77,7 +79,7 @@ function getPlayerIDs() {
   });
 }
 
-// Show current ethereum account in UI.
+// Show current ethereum account selected in metamask in UI.
 var account = web3.eth.accounts[0];
 
 var accountInterval = setInterval(function() {
@@ -87,6 +89,8 @@ var accountInterval = setInterval(function() {
   }
 }, 100);
 
+
+// Reflect smart contract state in the UI - show if game is still open or currently closed
 async function checkPlayerStatuses(instance) {
   var player1set = await instance.getPlayer1Status();
   var player2set = await instance.getPlayer2Status();

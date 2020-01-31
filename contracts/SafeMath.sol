@@ -1,5 +1,7 @@
 pragma solidity ^0.5.0;
 
+/// @notice No tests have been written for this library as it has been taken directly from the SafeMath repo on github.
+
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
  * checks.

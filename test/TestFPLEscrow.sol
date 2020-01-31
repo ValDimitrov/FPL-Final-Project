@@ -40,14 +40,12 @@ contract TestFPLEscrow {
         Assert.equal(fpl.playerTwoScore(), _playerTwoScore, "playerOneScore should initially be zero");
     }
 
-/// @notice Testing that the SafeMath library works properly.
-    // function testSMLibrary() public {
+/// @notice Testing the initial state of the safeMathTestTotal variable.
+    function testSM() public {
 
-    //     uint256 var1 = 1;
-    //     uint256 var2 = 3;
-    //     uint256 sum = (var1 + var2);
+        uint256 initial = 0;
 
-    //     Assert.equal(fpl.testLibrary(1, 3), sum, "The sums should match");
-    // }
+        Assert.equal(fpl.safeMathTestTotal(), initial, "The values should be the same");
+    }
 
 }
