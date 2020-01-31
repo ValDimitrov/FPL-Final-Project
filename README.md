@@ -2,6 +2,7 @@ Fantasy Football Head to Head Cryptocurrency Game
 
 Author: Valentin Dimitrov
 
+---
 Project Summary: 
 -	2 players want to play Fantasy Premier League (FPL) head to head (one vs one) using cryptocurrency (ether). 
 -	They both come to a simple website, where they place their bet (0.01 eth), and they enter into the h2h game by sending their eth to the smart contract. 
@@ -18,7 +19,7 @@ How to Use:
 - 	Compile and deploy the smart contracts by typing truffle migrate in the command line while being in the project folder.
 -   Type npm install in the command line while in the project folder in order to install all of the dependencies.
 - 	Type npm run dev in order to start the lite server at localhost:3000
--	  Please configure metamask by clicking on "Import account using seed phrase" and pasting the seed phrase from your private ganache blockchain plus a simple password. // Alternatively, if you don't want to do this, then you can import accounts one by one using the private key.
+-	  Please configure metamask by clicking on "Import account using seed phrase" and pasting the seed phrase from your private ganache blockchain plus a simple password. Alternatively, if you don't want to do this, then you can import accounts one by one using the private key.
 -	  The frontend will load and you should be prompted by metamask that "FPL Head To Head Game would like to connect to your account." Click connect.
 - 	If this does not appear at first, please log out of your current metamask account and then refresh the page. The request should then appear. 
 -	  From metamask, choose an account for Player 1. Then type player 1's playerID in the box (just use 1) and click enter. Then accept the transaction for 0.01 eth. Player one is now entered into the game.
