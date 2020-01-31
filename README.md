@@ -34,4 +34,5 @@ How to Use:
 - 	Go to remix.ethereum.org and click Solidity. There, at the "Deploy and run transactions" tab, choose "Web3 provider" as environment, and "http://localhost:8545" as endpoint.
 -	After that, input the address of the FPLEscrow contract next to the blue "At Address" button. You can find this address by clicking on "Contracts" in ganache-gui. If necessary, import the smart contracts "FPLEscrow.sol" and "SafeMath.sol", found in the contracts folder, from your PC to Remix (by going to the file explorers tab and clicking on "Add local file to the browser explorer") and compile them.
 -	Check the two playerIDs by calling the getter functions "getPlayer1ID" and "getPlayer2ID". Then, call the setResults function as the arbiter with the correct scores (just type "30, 25" as an example). The payout function is then called and the winning player receives the ether stored. The game is over.
-
+---
+Project has been tested and works on both Windows 10 and Ubuntu
