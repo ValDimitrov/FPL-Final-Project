@@ -16,8 +16,8 @@ How to Use:
 -	Clone this github repo on your pc: https://github.com/ValDimitrov/FPL-Final-Project
 - If you don't have nodejs, npm, truffle or metamask, install them first. Optionally also install ganache-gui.
 -	Run a private blockchain with ganachi-gui or ganache-cli at port 8545. If using ganache-gui, make sure to add the project's "truffle-config.js" file in settings.
-- 	Compile and deploy the smart contracts by typing truffle migrate in the command line while being in the project folder.
 -   Type npm install in the command line while in the project folder in order to install all of the dependencies.
+- 	Compile and deploy the smart contracts by typing truffle migrate in the command line while being in the project folder.
 - 	Type npm run dev in order to start the lite server at localhost:3000
 
 -   Please configure metamask by clicking on "Import account using seed phrase", pasting the seed phrase from your private ganache blockchain plus a simple password and choosing "localhost 8545" or "custom RPC" as network. Alternatively, if you don't want to do this, then you can import accounts one by one using the private key.
