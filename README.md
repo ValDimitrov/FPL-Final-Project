@@ -1,4 +1,4 @@
-Fantasy Football Head to Head Cryptocurrency Game 
+#Fantasy Football Head to Head Cryptocurrency Game 
 
 Final Project for Consensys Academy Developer Bootcamp Fall 2019
 
